@@ -18,14 +18,14 @@ alphabetical order, it input lines based on some semantic ranking criteria.
 Lines can be provided via files or standard input. For example:
 ```bash
 # Sort lines from a file using the "sorting" method (default)
-llm sort --query "Which line is most inspiring?" unsorted.txt
+llm sort --query "Which names is more suitable for a pet monkey?" names.txt
 
 # Read from standard input
-cat unsorted.txt | llm sort --query "Which line is most inspiring?"
+cat titles.txt | llm sort --query "Which book should I read to cook better?"
 
 # Use a different method, limit the output to the top 5 lines, and specify a custom model and prompt:
 llm sort --query "Rank these slogans" --method sliding --top-k 5 --model gpt-4 \
-  --prompt 'Decide which line is more compelling. Answer with "Line A" or "Line B" Query: {query} Lines: {docA} {docB}.' unsorted.txt
+  --prompt 'Decide which line is more compelling. Answer with "Line A" or "Line B" Query: {query} Lines: {docA} {docB}.' quotes.txt
 ```
 
 **Note**: The prompt template variables are `{query}`, `{docA}`, and `{docB}`.
