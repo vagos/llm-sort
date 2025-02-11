@@ -53,10 +53,10 @@ def register_commands(cli):
 
         This command reads lines either from the FILES provided as arguments or, if no files
         are given, from standard input. Each line is treated as a separate document. The lines are then
-        sorted semantically using one of three pairwise ranking methods:
+        sorted semantically using an LLM with one of three pairwise ranking methods:
 
           • allpair  — PRP-Allpair: Compare every pair of lines and aggregate scores.
-          • sorting  — PRP-Sorting: Use a custom comparator with a sorting algorithm.
+          • sorting  — PRP-Sorting: Use pairwise comparision with a sorting algorithm.
           • sliding  — PRP-Sliding-K: Perform a sliding-window (bubble sort) pass repeatedly.
 
         Example usage:

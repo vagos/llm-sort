@@ -1,6 +1,7 @@
 # llm-sort
 
 [LLM](https://llm.datasette.io/) plugin for semantically sorting lines.
+Ranking techniques are based on [this](https://arxiv.org/abs/2306.17563) paper.
 
 ## Installation
 
