@@ -19,7 +19,7 @@ alphabetical order, it input lines based on some semantic ranking criteria.
 Lines can be provided via files or standard input. For example:
 ```bash
 # Sort lines from a file using the "sorting" method (default)
-llm sort --query "Which names is more suitable for a pet monkey?" names.txt
+llm sort --query "Which of these names is more suitable for a pet monkey?" names.txt
 
 # Read from standard input
 cat titles.txt | llm sort --query "Which book should I read to cook better?"
