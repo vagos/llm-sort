@@ -1,6 +1,6 @@
 [project]
 name = "llm-sort"
-version = "0.1"
+version = "0.2"
 description = "LLM plugin for semantic sorting"
 readme = "README.md"
 authors = [{name = "Evangelos Lamprou"}]

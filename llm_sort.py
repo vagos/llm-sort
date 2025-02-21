@@ -82,7 +82,8 @@ def register_commands(cli):
             return
 
         # Initialize the LLM model.
-        from llm.cli import get_default_model, get_key
+        from llm.cli import get_default_model
+        from llm import get_key
         model_obj = llm.get_model(model or get_default_model())
         if model_obj.needs_key:
             model_obj.key = get_key("", model_obj.needs_key, model_obj.key_env_var)
