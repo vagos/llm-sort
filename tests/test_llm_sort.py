@@ -119,6 +119,6 @@ def test_sort_no_input(monkeypatch):
         input="",
     )
     # Our plugin writes an error message if no input lines are provided.
-    assert result.exit_code == 0
+    assert result.exit_code == 0, result.output
     # The error message is sent to stderr.
     assert "No input lines provided." in result.output
