@@ -25,7 +25,7 @@ Which line is more relevant to the query? Please answer with "Line A" or "Line B
 def register_commands(cli):
     @cli.command(context_settings=dict(ignore_unknown_options=True))
     @click.option(
-        "--query",
+        "-q", "--query",
         required=True,
         help="The query to use for semantic sorting. Lines will be sorted based on this query."
     )
