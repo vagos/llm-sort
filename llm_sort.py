@@ -27,42 +27,37 @@ def register_commands(cli):
     @click.option(
         "-q", "--query",
         required=True,
-        help="The query to use for semantic sorting. Lines will be sorted based on this query."
+        help="Query to use for sorting."
     )
     @click.option(
         "--method",
         type=click.Choice(["allpair", "sorting", "sliding"]),
         default="sorting",
-        help="Semantic sorting method to use:\n"
-             "  allpair  - Compare every pair and aggregate scores.\n"
-             "  sorting  - Use a sorting algorithm with pairwise comparisons.\n"
-             "  sliding  - Use a sliding-window (bubble sort) approach."
+        help="Semantic sorting method to use."
     )
     @click.option(
         "--top-k",
         type=int,
         default=0,
-        help="Only keep the top K sorted lines (0 to keep all)."
+        help="Only keep top K sorted lines (0 keeps all)."
     )
-    @click.option("-m", "--model", help="LLM model to use for semantic sorting.")
+    @click.option("-m", "--model", help="LLM model to use.")
     @click.option("--prompt", help="Custom pairwise ranking prompt template.")
     @click.argument("files", type=click.File("r"), nargs=-1)
     def sort(query, method, top_k, model, prompt, files):
         """
-        Sort input lines semantically
+Sort input lines semantically
 
-        This command reads lines either from the FILES provided as arguments or, if no files
-        are given, from standard input. Each line is treated as a separate document. The lines are then
-        sorted semantically using an LLM with one of three pairwise ranking methods:
+This command reads lines from the given FILES or standard input, treating each line as a separate document.
+It then semantically sorts the lines using an LLM and one of three pairwise ranking methods:
 
-          • allpair  — PRP-Allpair: Compare every pair of lines and aggregate scores.
-          • sorting  — PRP-Sorting: Use pairwise comparision with a sorting algorithm.
-          • sliding  — PRP-Sliding-K: Perform a sliding-window (bubble sort) pass repeatedly.
+  * allpair: PRP-Allpair: Compare every pair of lines and aggregate scores.
+  * sorting: PRP-Sorting: Use pairwise comparision with a sorting algorithm.
+  * sliding: PRP-Sliding-K: Perform a sliding-window (bubble sort) pass repeatedly.
 
-        Example usage:
-            llm sort --query "Which name is more suitable for a pet monkey?" names.txt
+Example: llm sort -q "Which name is better for a pet monkey?" names.txt
 
-        The sorted lines are written to standard output.
+Sorted lines are written to standard output.
         """
         # If no files are provided, default to reading from standard input.
         if not files:
