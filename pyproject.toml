@@ -1,6 +1,6 @@
 [project]
 name = "llm-sort"
-version = "0.2"
+version = "0.3"
 description = "LLM plugin for semantic sorting"
 readme = "README.md"
 authors = [{name = "Evangelos Lamprou"}]
@@ -9,7 +9,8 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License"
 ]
 dependencies = [
-    "llm>=0.9",
+    "llm>=0.16",
+    "click (>=8.0,!=8.2.1)"
 ]
 
 [project.urls]
