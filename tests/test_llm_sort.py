@@ -1,6 +1,5 @@
 from click.testing import CliRunner
 import re
-import pytest
 import llm
 from llm.cli import cli
 
