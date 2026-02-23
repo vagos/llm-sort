@@ -13,8 +13,7 @@ llm install llm-sort
 ## Usage
 
 The plugin adds a new command, `llm sort`. This command has an interface
-similar to the GNU `sort` command, but instead of sorting lines based on
-alphabetical order, it input lines based on some semantic ranking criteria.
+similar to the GNU `sort` command, and sorts input lines based on some semantic ranking criteria.
 
 Lines can be provided via files or standard input. For example:
 ```bash
